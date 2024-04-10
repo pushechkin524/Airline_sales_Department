@@ -1,0 +1,31 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        WindowStartupLocation="CenterScreen"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_5_UP0101"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="_5_UP0101.Admin"
+        mc:Ignorable="d"
+        Title="Администратор" Height="634" Width="800"
+        ResizeMode="NoResize" Cursor="">
+
+    <Grid Background="#474A51">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="281*"/>
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Left" Margin="34,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="79" Width="454" Foreground="#FFB5B8B1" TextAlignment="Center" FontSize="48" FontWeight="Bold" Grid.Row="1"><Run Language="ru-ru" Text="АДМИНИСТРАТОР"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="75" Width="454" Foreground="#FFB5B8B1" TextAlignment="Center" FontSize="24" FontWeight="Bold" Margin="34,115,0,0"><Run Language="ru-ru" Text="выберите таблицу"/><LineBreak/><Run Language="ru-ru" Text="которую хотите редактировать "/></TextBlock>
+        <Frame Background="#FFB5B8B1"/>
+        <Button Content="Роли пользователей" HorizontalAlignment="Left" VerticalAlignment="Center" Height="37" Width="177" Margin="115,0,0,0" Background="#FF474A51" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click_2"/>
+        <Button Content="Сотрудники" HorizontalAlignment="Center" VerticalAlignment="Center" Height="37" Width="176" Background="#FF474A51" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click_1"/>
+        <Button Content="Пользователи" HorizontalAlignment="Left" VerticalAlignment="Center" Height="37" Width="176" Margin="506,0,0,0" Background="#FF474A51" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click"/>
+        <Frame NavigationUIVisibility="Hidden" x:Name="FrameAD" Grid.Row="2" />
+        <Button HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="41" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="Button_Click_4">
+            <Button.Background>
+                <ImageBrush ImageSource="/ADMINISTRATOR/pngwing.com (4).png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>

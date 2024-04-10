@@ -1,0 +1,954 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище Airline_sales_DepartmentModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Airports">
+          <Key>
+            <PropertyRef Name="AirportID" />
+          </Key>
+          <Property Name="AirportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TownID" Type="int" />
+        </EntityType>
+        <EntityType Name="Baggage_type">
+          <Key>
+            <PropertyRef Name="Baggage_typeID" />
+          </Key>
+          <Property Name="Baggage_typeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type_baggage" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Fixed_allowance_baggage" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CLASSS">
+          <Key>
+            <PropertyRef Name="CLASSSID" />
+          </Key>
+          <Property Name="CLASSSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_class" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="Fixed_allowance_class" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="ClientsID" />
+          </Key>
+          <Property Name="ClientsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Passport_number" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name_" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Patronymic" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Date_of_birth" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Companies_carrier">
+          <Key>
+            <PropertyRef Name="Company_carrierID" />
+          </Key>
+          <Property Name="Company_carrierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_company" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Phone_company" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Email_company" Type="varchar" MaxLength="39" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmployeеID" />
+          </Key>
+          <Property Name="EmployeеID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Surname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name_" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Patronymic" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Passport_number" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="DateOfBirth" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Flights">
+          <Key>
+            <PropertyRef Name="FlightID" />
+          </Key>
+          <Property Name="FlightID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FromAirportID" Type="int" />
+          <Property Name="ToAirportID" Type="int" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="Departure_timе" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Arrival_timе" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Airplane_number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="ClientID" Type="int" />
+          <Property Name="TicketID" Type="int" />
+        </EntityType>
+        <EntityType Name="Tickets">
+          <Key>
+            <PropertyRef Name="TicketID" />
+          </Key>
+          <Property Name="TicketID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FlightID" Type="int" />
+          <Property Name="CLASSSID" Type="int" />
+          <Property Name="Baggage_typeID" Type="int" />
+          <Property Name="Waiting_hallID" Type="int" />
+          <Property Name="ClientID" Type="int" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Animails" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Eat" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Towns">
+          <Key>
+            <PropertyRef Name="TownID" />
+          </Key>
+          <Property Name="TownID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Town_name" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User_Roles">
+          <Key>
+            <PropertyRef Name="User_RoleID" />
+          </Key>
+          <Property Name="User_RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_role" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_RoleID" Type="int" />
+          <Property Name="Login__" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password__" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Waiting_hall">
+          <Key>
+            <PropertyRef Name="Waiting_hallID" />
+          </Key>
+          <Property Name="Waiting_hallID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_waiting" Type="varchar" MaxLength="17" Nullable="false" />
+          <Property Name="Fixed_allowance_waiting" Type="int" Nullable="false" />
+          <Property Name="Nubmer_waiting" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Airports__TownID__398D8EEE">
+          <End Role="Towns" Type="Self.Towns" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Airports" Type="Self.Airports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towns">
+              <PropertyRef Name="TownID" />
+            </Principal>
+            <Dependent Role="Airports">
+              <PropertyRef Name="TownID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__UserI__5629CD9C">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Flights__Company__403A8C7D">
+          <End Role="Companies_carrier" Type="Self.Companies_carrier" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Flights" Type="Self.Flights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies_carrier">
+              <PropertyRef Name="Company_carrierID" />
+            </Principal>
+            <Dependent Role="Flights">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Flights__FromAir__3E52440B">
+          <End Role="Airports" Type="Self.Airports" Multiplicity="0..1" />
+          <End Role="Flights" Type="Self.Flights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Airports">
+              <PropertyRef Name="AirportID" />
+            </Principal>
+            <Dependent Role="Flights">
+              <PropertyRef Name="FromAirportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Flights__ToAirpo__3F466844">
+          <End Role="Airports" Type="Self.Airports" Multiplicity="0..1" />
+          <End Role="Flights" Type="Self.Flights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Airports">
+              <PropertyRef Name="AirportID" />
+            </Principal>
+            <Dependent Role="Flights">
+              <PropertyRef Name="ToAirportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__ClientID__6383C8BA">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ClientsID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__Employee__628FA481">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeеID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__TicketID__6477ECF3">
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tickets">
+              <PropertyRef Name="TicketID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="TicketID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__Baggage__4CA06362">
+          <End Role="Baggage_type" Type="Self.Baggage_type" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Baggage_type">
+              <PropertyRef Name="Baggage_typeID" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="Baggage_typeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__CLASSSI__4BAC3F29">
+          <End Role="CLASSS" Type="Self.CLASSS" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLASSS">
+              <PropertyRef Name="CLASSSID" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="CLASSSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__ClientI__4E88ABD4">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ClientsID" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__FlightI__4AB81AF0">
+          <End Role="Flights" Type="Self.Flights" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Flights">
+              <PropertyRef Name="FlightID" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="FlightID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__Waiting__4D94879B">
+          <End Role="Waiting_hall" Type="Self.Waiting_hall" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Waiting_hall">
+              <PropertyRef Name="Waiting_hallID" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="Waiting_hallID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__User_Role__534D60F1">
+          <End Role="User_Roles" Type="Self.User_Roles" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Roles">
+              <PropertyRef Name="User_RoleID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="User_RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище Airline_sales_DepartmentModelContainer">
+          <EntitySet Name="Airports" EntityType="Self.Airports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Baggage_type" EntityType="Self.Baggage_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLASSS" EntityType="Self.CLASSS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Companies_carrier" EntityType="Self.Companies_carrier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Flights" EntityType="Self.Flights" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tickets" EntityType="Self.Tickets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Towns" EntityType="Self.Towns" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Roles" EntityType="Self.User_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Waiting_hall" EntityType="Self.Waiting_hall" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Airports__TownID__398D8EEE" Association="Self.FK__Airports__TownID__398D8EEE">
+            <End Role="Towns" EntitySet="Towns" />
+            <End Role="Airports" EntitySet="Airports" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__UserI__5629CD9C" Association="Self.FK__Employees__UserI__5629CD9C">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Flights__Company__403A8C7D" Association="Self.FK__Flights__Company__403A8C7D">
+            <End Role="Companies_carrier" EntitySet="Companies_carrier" />
+            <End Role="Flights" EntitySet="Flights" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Flights__FromAir__3E52440B" Association="Self.FK__Flights__FromAir__3E52440B">
+            <End Role="Airports" EntitySet="Airports" />
+            <End Role="Flights" EntitySet="Flights" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Flights__ToAirpo__3F466844" Association="Self.FK__Flights__ToAirpo__3F466844">
+            <End Role="Airports" EntitySet="Airports" />
+            <End Role="Flights" EntitySet="Flights" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__ClientID__6383C8BA" Association="Self.FK__Orders__ClientID__6383C8BA">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__Employee__628FA481" Association="Self.FK__Orders__Employee__628FA481">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__TicketID__6477ECF3" Association="Self.FK__Orders__TicketID__6477ECF3">
+            <End Role="Tickets" EntitySet="Tickets" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__Baggage__4CA06362" Association="Self.FK__Tickets__Baggage__4CA06362">
+            <End Role="Baggage_type" EntitySet="Baggage_type" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__CLASSSI__4BAC3F29" Association="Self.FK__Tickets__CLASSSI__4BAC3F29">
+            <End Role="CLASSS" EntitySet="CLASSS" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__ClientI__4E88ABD4" Association="Self.FK__Tickets__ClientI__4E88ABD4">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__FlightI__4AB81AF0" Association="Self.FK__Tickets__FlightI__4AB81AF0">
+            <End Role="Flights" EntitySet="Flights" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__Waiting__4D94879B" Association="Self.FK__Tickets__Waiting__4D94879B">
+            <End Role="Waiting_hall" EntitySet="Waiting_hall" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__User_Role__534D60F1" Association="Self.FK__Users__User_Role__534D60F1">
+            <End Role="User_Roles" EntitySet="User_Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Airline_sales_DepartmentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Airports">
+          <Key>
+            <PropertyRef Name="AirportID" />
+          </Key>
+          <Property Name="AirportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TownID" Type="Int32" />
+          <NavigationProperty Name="Towns" Relationship="Self.FK__Airports__TownID__398D8EEE" FromRole="Airports" ToRole="Towns" />
+          <NavigationProperty Name="Flights" Relationship="Self.FK__Flights__FromAir__3E52440B" FromRole="Airports" ToRole="Flights" />
+          <NavigationProperty Name="Flights1" Relationship="Self.FK__Flights__ToAirpo__3F466844" FromRole="Airports" ToRole="Flights" />
+        </EntityType>
+        <EntityType Name="Baggage_type">
+          <Key>
+            <PropertyRef Name="Baggage_typeID" />
+          </Key>
+          <Property Name="Baggage_typeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type_baggage" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fixed_allowance_baggage" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK__Tickets__Baggage__4CA06362" FromRole="Baggage_type" ToRole="Tickets" />
+        </EntityType>
+        <EntityType Name="CLASSS">
+          <Key>
+            <PropertyRef Name="CLASSSID" />
+          </Key>
+          <Property Name="CLASSSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_class" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fixed_allowance_class" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK__Tickets__CLASSSI__4BAC3F29" FromRole="CLASSS" ToRole="Tickets" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="ClientsID" />
+          </Key>
+          <Property Name="ClientsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Passport_number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name_" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date_of_birth" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__ClientID__59FA5E80" FromRole="Clients" ToRole="Orders" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK__Tickets__ClientI__4E88ABD4" FromRole="Clients" ToRole="Tickets" />
+        </EntityType>
+        <EntityType Name="Companies_carrier">
+          <Key>
+            <PropertyRef Name="Company_carrierID" />
+          </Key>
+          <Property Name="Company_carrierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_company" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone_company" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email_company" Type="String" MaxLength="39" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Flights" Relationship="Self.FK__Flights__Company__403A8C7D" FromRole="Companies_carrier" ToRole="Flights" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmployeеID" />
+          </Key>
+          <Property Name="EmployeеID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name_" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Passport_number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateOfBirth" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Employees__UserI__5629CD9C" FromRole="Employees" ToRole="Users" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Employee__59063A47" FromRole="Employees" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Flights">
+          <Key>
+            <PropertyRef Name="FlightID" />
+          </Key>
+          <Property Name="FlightID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FromAirportID" Type="Int32" />
+          <Property Name="ToAirportID" Type="Int32" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="Departure_timе" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Arrival_timе" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Airplane_number" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Airports" Relationship="Self.FK__Flights__FromAir__3E52440B" FromRole="Flights" ToRole="Airports" />
+          <NavigationProperty Name="Airports1" Relationship="Self.FK__Flights__ToAirpo__3F466844" FromRole="Flights" ToRole="Airports" />
+          <NavigationProperty Name="Companies_carrier" Relationship="Self.FK__Flights__Company__403A8C7D" FromRole="Flights" ToRole="Companies_carrier" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK__Tickets__FlightI__4AB81AF0" FromRole="Flights" ToRole="Tickets" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="ClientID" Type="Int32" />
+          <Property Name="TicketID" Type="Int32" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK__Orders__ClientID__59FA5E80" FromRole="Orders" ToRole="Clients" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Orders__Employee__59063A47" FromRole="Orders" ToRole="Employees" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK__Orders__TicketID__5AEE82B9" FromRole="Orders" ToRole="Tickets" />
+        </EntityType>
+        <EntityType Name="Tickets">
+          <Key>
+            <PropertyRef Name="TicketID" />
+          </Key>
+          <Property Name="TicketID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FlightID" Type="Int32" />
+          <Property Name="CLASSSID" Type="Int32" />
+          <Property Name="Baggage_typeID" Type="Int32" />
+          <Property Name="Waiting_hallID" Type="Int32" />
+          <Property Name="ClientID" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Animails" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Eat" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Baggage_type" Relationship="Self.FK__Tickets__Baggage__4CA06362" FromRole="Tickets" ToRole="Baggage_type" />
+          <NavigationProperty Name="CLASSS" Relationship="Self.FK__Tickets__CLASSSI__4BAC3F29" FromRole="Tickets" ToRole="CLASSS" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK__Tickets__ClientI__4E88ABD4" FromRole="Tickets" ToRole="Clients" />
+          <NavigationProperty Name="Flights" Relationship="Self.FK__Tickets__FlightI__4AB81AF0" FromRole="Tickets" ToRole="Flights" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__TicketID__5AEE82B9" FromRole="Tickets" ToRole="Orders" />
+          <NavigationProperty Name="Waiting_hall" Relationship="Self.FK__Tickets__Waiting__4D94879B" FromRole="Tickets" ToRole="Waiting_hall" />
+        </EntityType>
+        <EntityType Name="Towns">
+          <Key>
+            <PropertyRef Name="TownID" />
+          </Key>
+          <Property Name="TownID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Town_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Airports" Relationship="Self.FK__Airports__TownID__398D8EEE" FromRole="Towns" ToRole="Airports" />
+        </EntityType>
+        <EntityType Name="User_Roles">
+          <Key>
+            <PropertyRef Name="User_RoleID" />
+          </Key>
+          <Property Name="User_RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_role" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__User_Role__534D60F1" FromRole="User_Roles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_RoleID" Type="Int32" />
+          <Property Name="Login__" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password__" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employees__UserI__5629CD9C" FromRole="Users" ToRole="Employees" />
+          <NavigationProperty Name="User_Roles" Relationship="Self.FK__Users__User_Role__534D60F1" FromRole="Users" ToRole="User_Roles" />
+        </EntityType>
+        <EntityType Name="Waiting_hall">
+          <Key>
+            <PropertyRef Name="Waiting_hallID" />
+          </Key>
+          <Property Name="Waiting_hallID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_waiting" Type="String" MaxLength="17" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fixed_allowance_waiting" Type="Int32" Nullable="false" />
+          <Property Name="Nubmer_waiting" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK__Tickets__Waiting__4D94879B" FromRole="Waiting_hall" ToRole="Tickets" />
+        </EntityType>
+        <Association Name="FK__Airports__TownID__398D8EEE">
+          <End Role="Towns" Type="Self.Towns" Multiplicity="0..1" />
+          <End Role="Airports" Type="Self.Airports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towns">
+              <PropertyRef Name="TownID" />
+            </Principal>
+            <Dependent Role="Airports">
+              <PropertyRef Name="TownID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Flights__FromAir__3E52440B">
+          <End Role="Airports" Type="Self.Airports" Multiplicity="0..1" />
+          <End Role="Flights" Type="Self.Flights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Airports">
+              <PropertyRef Name="AirportID" />
+            </Principal>
+            <Dependent Role="Flights">
+              <PropertyRef Name="FromAirportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Flights__ToAirpo__3F466844">
+          <End Role="Airports" Type="Self.Airports" Multiplicity="0..1" />
+          <End Role="Flights" Type="Self.Flights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Airports">
+              <PropertyRef Name="AirportID" />
+            </Principal>
+            <Dependent Role="Flights">
+              <PropertyRef Name="ToAirportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__Baggage__4CA06362">
+          <End Role="Baggage_type" Type="Self.Baggage_type" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Baggage_type">
+              <PropertyRef Name="Baggage_typeID" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="Baggage_typeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__CLASSSI__4BAC3F29">
+          <End Role="CLASSS" Type="Self.CLASSS" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLASSS">
+              <PropertyRef Name="CLASSSID" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="CLASSSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__ClientID__59FA5E80">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ClientsID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__ClientI__4E88ABD4">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ClientsID" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Flights__Company__403A8C7D">
+          <End Role="Companies_carrier" Type="Self.Companies_carrier" Multiplicity="0..1" />
+          <End Role="Flights" Type="Self.Flights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies_carrier">
+              <PropertyRef Name="Company_carrierID" />
+            </Principal>
+            <Dependent Role="Flights">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__UserI__5629CD9C">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__Employee__59063A47">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeеID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__FlightI__4AB81AF0">
+          <End Role="Flights" Type="Self.Flights" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Flights">
+              <PropertyRef Name="FlightID" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="FlightID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__TicketID__5AEE82B9">
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tickets">
+              <PropertyRef Name="TicketID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="TicketID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__Waiting__4D94879B">
+          <End Role="Waiting_hall" Type="Self.Waiting_hall" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Waiting_hall">
+              <PropertyRef Name="Waiting_hallID" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="Waiting_hallID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__User_Role__534D60F1">
+          <End Role="User_Roles" Type="Self.User_Roles" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Roles">
+              <PropertyRef Name="User_RoleID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="User_RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Airline_sales_DepartmentEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Airports" EntityType="Self.Airports" />
+          <EntitySet Name="Baggage_type" EntityType="Self.Baggage_type" />
+          <EntitySet Name="CLASSS" EntityType="Self.CLASSS" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" />
+          <EntitySet Name="Companies_carrier" EntityType="Self.Companies_carrier" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" />
+          <EntitySet Name="Flights" EntityType="Self.Flights" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" />
+          <EntitySet Name="Tickets" EntityType="Self.Tickets" />
+          <EntitySet Name="Towns" EntityType="Self.Towns" />
+          <EntitySet Name="User_Roles" EntityType="Self.User_Roles" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Waiting_hall" EntityType="Self.Waiting_hall" />
+          <AssociationSet Name="FK__Airports__TownID__398D8EEE" Association="Self.FK__Airports__TownID__398D8EEE">
+            <End Role="Towns" EntitySet="Towns" />
+            <End Role="Airports" EntitySet="Airports" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Flights__FromAir__3E52440B" Association="Self.FK__Flights__FromAir__3E52440B">
+            <End Role="Airports" EntitySet="Airports" />
+            <End Role="Flights" EntitySet="Flights" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Flights__ToAirpo__3F466844" Association="Self.FK__Flights__ToAirpo__3F466844">
+            <End Role="Airports" EntitySet="Airports" />
+            <End Role="Flights" EntitySet="Flights" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__Baggage__4CA06362" Association="Self.FK__Tickets__Baggage__4CA06362">
+            <End Role="Baggage_type" EntitySet="Baggage_type" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__CLASSSI__4BAC3F29" Association="Self.FK__Tickets__CLASSSI__4BAC3F29">
+            <End Role="CLASSS" EntitySet="CLASSS" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__ClientID__59FA5E80" Association="Self.FK__Orders__ClientID__59FA5E80">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__ClientI__4E88ABD4" Association="Self.FK__Tickets__ClientI__4E88ABD4">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Flights__Company__403A8C7D" Association="Self.FK__Flights__Company__403A8C7D">
+            <End Role="Companies_carrier" EntitySet="Companies_carrier" />
+            <End Role="Flights" EntitySet="Flights" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__UserI__5629CD9C" Association="Self.FK__Employees__UserI__5629CD9C">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__Employee__59063A47" Association="Self.FK__Orders__Employee__59063A47">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__FlightI__4AB81AF0" Association="Self.FK__Tickets__FlightI__4AB81AF0">
+            <End Role="Flights" EntitySet="Flights" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__TicketID__5AEE82B9" Association="Self.FK__Orders__TicketID__5AEE82B9">
+            <End Role="Tickets" EntitySet="Tickets" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__Waiting__4D94879B" Association="Self.FK__Tickets__Waiting__4D94879B">
+            <End Role="Waiting_hall" EntitySet="Waiting_hall" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__User_Role__534D60F1" Association="Self.FK__Users__User_Role__534D60F1">
+            <End Role="User_Roles" EntitySet="User_Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Airline_sales_DepartmentModelContainer" CdmEntityContainer="Airline_sales_DepartmentEntities3">
+          <EntitySetMapping Name="Airports">
+            <EntityTypeMapping TypeName="Airline_sales_DepartmentModel.Airports">
+              <MappingFragment StoreEntitySet="Airports">
+                <ScalarProperty Name="AirportID" ColumnName="AirportID" />
+                <ScalarProperty Name="Name_" ColumnName="Name_" />
+                <ScalarProperty Name="TownID" ColumnName="TownID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Baggage_type">
+            <EntityTypeMapping TypeName="Airline_sales_DepartmentModel.Baggage_type">
+              <MappingFragment StoreEntitySet="Baggage_type">
+                <ScalarProperty Name="Baggage_typeID" ColumnName="Baggage_typeID" />
+                <ScalarProperty Name="Type_baggage" ColumnName="Type_baggage" />
+                <ScalarProperty Name="Fixed_allowance_baggage" ColumnName="Fixed_allowance_baggage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLASSS">
+            <EntityTypeMapping TypeName="Airline_sales_DepartmentModel.CLASSS">
+              <MappingFragment StoreEntitySet="CLASSS">
+                <ScalarProperty Name="CLASSSID" ColumnName="CLASSSID" />
+                <ScalarProperty Name="Name_class" ColumnName="Name_class" />
+                <ScalarProperty Name="Fixed_allowance_class" ColumnName="Fixed_allowance_class" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="Airline_sales_DepartmentModel.Clients">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="ClientsID" ColumnName="ClientsID" />
+                <ScalarProperty Name="Passport_number" ColumnName="Passport_number" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name_" ColumnName="Name_" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Date_of_birth" ColumnName="Date_of_birth" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies_carrier">
+            <EntityTypeMapping TypeName="Airline_sales_DepartmentModel.Companies_carrier">
+              <MappingFragment StoreEntitySet="Companies_carrier">
+                <ScalarProperty Name="Company_carrierID" ColumnName="Company_carrierID" />
+                <ScalarProperty Name="Name_company" ColumnName="Name_company" />
+                <ScalarProperty Name="Phone_company" ColumnName="Phone_company" />
+                <ScalarProperty Name="Email_company" ColumnName="Email_company" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="Airline_sales_DepartmentModel.Employees">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="EmployeеID" ColumnName="EmployeеID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name_" ColumnName="Name_" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Passport_number" ColumnName="Passport_number" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Flights">
+            <EntityTypeMapping TypeName="Airline_sales_DepartmentModel.Flights">
+              <MappingFragment StoreEntitySet="Flights">
+                <ScalarProperty Name="FlightID" ColumnName="FlightID" />
+                <ScalarProperty Name="FromAirportID" ColumnName="FromAirportID" />
+                <ScalarProperty Name="ToAirportID" ColumnName="ToAirportID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Departure_timе" ColumnName="Departure_timе" />
+                <ScalarProperty Name="Arrival_timе" ColumnName="Arrival_timе" />
+                <ScalarProperty Name="Airplane_number" ColumnName="Airplane_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="Airline_sales_DepartmentModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="TicketID" ColumnName="TicketID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tickets">
+            <EntityTypeMapping TypeName="Airline_sales_DepartmentModel.Tickets">
+              <MappingFragment StoreEntitySet="Tickets">
+                <ScalarProperty Name="TicketID" ColumnName="TicketID" />
+                <ScalarProperty Name="FlightID" ColumnName="FlightID" />
+                <ScalarProperty Name="CLASSSID" ColumnName="CLASSSID" />
+                <ScalarProperty Name="Baggage_typeID" ColumnName="Baggage_typeID" />
+                <ScalarProperty Name="Waiting_hallID" ColumnName="Waiting_hallID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Animails" ColumnName="Animails" />
+                <ScalarProperty Name="Eat" ColumnName="Eat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Towns">
+            <EntityTypeMapping TypeName="Airline_sales_DepartmentModel.Towns">
+              <MappingFragment StoreEntitySet="Towns">
+                <ScalarProperty Name="TownID" ColumnName="TownID" />
+                <ScalarProperty Name="Town_name" ColumnName="Town_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Roles">
+            <EntityTypeMapping TypeName="Airline_sales_DepartmentModel.User_Roles">
+              <MappingFragment StoreEntitySet="User_Roles">
+                <ScalarProperty Name="User_RoleID" ColumnName="User_RoleID" />
+                <ScalarProperty Name="Name_role" ColumnName="Name_role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Airline_sales_DepartmentModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="User_RoleID" ColumnName="User_RoleID" />
+                <ScalarProperty Name="Login__" ColumnName="Login__" />
+                <ScalarProperty Name="Password__" ColumnName="Password__" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Waiting_hall">
+            <EntityTypeMapping TypeName="Airline_sales_DepartmentModel.Waiting_hall">
+              <MappingFragment StoreEntitySet="Waiting_hall">
+                <ScalarProperty Name="Waiting_hallID" ColumnName="Waiting_hallID" />
+                <ScalarProperty Name="Name_waiting" ColumnName="Name_waiting" />
+                <ScalarProperty Name="Fixed_allowance_waiting" ColumnName="Fixed_allowance_waiting" />
+                <ScalarProperty Name="Nubmer_waiting" ColumnName="Nubmer_waiting" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,35 @@
+﻿<Window x:Class="_5_UP0101.MANAGER.Compiler"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_5_UP0101.MANAGER"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Составитель" Height="634" Width="800"
+        ResizeMode="NoResize">
+
+    <Grid x:Name="DATAGRID" Background="#474A51">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="281*"/>
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Left" Margin="34,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="79" Width="454" Foreground="#FFB5B8B1" TextAlignment="Center" FontSize="48" FontWeight="Bold" Grid.Row="1"><Run Language="ru-ru" Text="СОСТАВИТЕЛЬ"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="75" Width="454" Foreground="#FFB5B8B1" TextAlignment="Center" FontSize="24" FontWeight="Bold" Margin="34,115,0,0"><Run Language="ru-ru" Text="выберите таблицу"/><LineBreak/><Run Language="ru-ru" Text="которую хотите редактировать "/></TextBlock>
+        <Frame Background="#FFB5B8B1"/>
+        <Button x:Name="_class" Content="Класс" HorizontalAlignment="Left" VerticalAlignment="Top" Height="37" Width="100" Margin="64,7,0,0" Background="#FF474A51" Foreground="White" BorderBrush="{x:Null}" Click="CLclass" FontSize="12"/>
+        <Frame NavigationUIVisibility="Hidden" x:Name="FrameAD" Margin="2,54,-2,0" Grid.RowSpan="2" />
+        <Button x:Name="type" Content="Тип багажа" HorizontalAlignment="Left" VerticalAlignment="Top" Height="37" Width="100" Margin="168,7,0,0" Background="#FF474A51" Foreground="White" BorderBrush="{x:Null}" Click="typeCL" FontSize="12"/>
+        <Button x:Name="zal" Content="Зал ожид" HorizontalAlignment="Left" VerticalAlignment="Top" Height="37" Width="100" Margin="272,7,0,0" Background="#FF474A51" Foreground="White" BorderBrush="{x:Null}" Click="zalCL" FontSize="12"/>
+        <Button x:Name="perevoz" Content="Перевозч" HorizontalAlignment="Left" VerticalAlignment="Top" Height="37" Width="98" Margin="377,7,0,0" Background="#FF474A51" Foreground="White" BorderBrush="{x:Null}" Click="perevozCL" FontSize="12"/>
+        <Button x:Name="reis" Content="Рейсы" HorizontalAlignment="Left" VerticalAlignment="Top" Height="37" Width="99" Margin="482,7,0,0" Background="#FF474A51" Foreground="White" BorderBrush="{x:Null}" Click="reisCL" FontSize="12"/>
+        <Button x:Name="airport" Content="Аэропорты" HorizontalAlignment="Left" VerticalAlignment="Top" Height="37" Width="100" Margin="585,7,0,0" Background="#FF474A51" Foreground="White" BorderBrush="{x:Null}" Click="airportCL" FontSize="12"/>
+        <Button x:Name="town" Content="Город" HorizontalAlignment="Left" VerticalAlignment="Top" Height="37" Width="89" Margin="689,7,0,0" Background="#FF474A51" Foreground="White" BorderBrush="{x:Null}" Click="townCL" FontSize="12"/>
+        <Button HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="41" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="Button_Click_4">
+            <Button.Background>
+                <ImageBrush ImageSource="/ADMINISTRATOR/pngwing.com (4).png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>
